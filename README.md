@@ -6,7 +6,7 @@ app. This was put together off the back of various concerns with asset
 performance on GOV.UK apps where digging into the problem revealed a lot of
 the time was spent importing the files for govuk-frontend.
 
-## With govuk-frotend using sassc
+## With govuk-frontend using sassc
 
 [master branch](https://github.com/kevindew/govuk-frontend-rails-performance/tree/master)
 
@@ -77,7 +77,7 @@ time sassc app/assets/stylesheets/application.scss -I node_modules
 => sassc app/assets/stylesheets/application.scss -I node_modules  0.15s user 0.02s system 80% cpu 0.217 total
 ```
 
-## With govuk-frotend and Ruby SASS
+## With govuk-frontend and Ruby SASS
 
 [govuk-frontend-npm branch](https://github.com/kevindew/govuk-frontend-rails-performance/tree/govuk-frontend-npm)
 
@@ -132,7 +132,7 @@ irb(main):002:0> puts Benchmark.measure { Rails.application.assets["application.
 => 0.004052   0.001280   0.005332 (  0.005758)
 ```
 
-## With govuk-frotend using webpacker
+## With govuk-frontend using webpacker
 
 [govuk-frontend-npm-webpacker branch](https://github.com/kevindew/govuk-frontend-rails-performance/tree/govuk-frontend-npm-webpacker)
 
