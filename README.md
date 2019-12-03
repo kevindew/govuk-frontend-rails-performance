@@ -42,7 +42,7 @@ time sassc app/assets/stylesheets/application.scss -I node_modules
 => sassc app/assets/stylesheets/application.scss -I node_modules  0.19s user 0.03s system 83% cpu 0.271 total
 ```
 
-## With govuk-frontend with imports slimmed and sassc
+## With govuk-frontend with duplicate imports removed and sassc
 
 [govuk-frontend-import-culled-sassc branch](https://github.com/kevindew/govuk-frontend-rails-performance/tree/govuk-frontend-import-culled-sassc)
 
@@ -105,7 +105,7 @@ irb(main):002:0> puts Benchmark.measure { Rails.application.assets["application.
 =>  0.003977   0.001489   0.005466 (  0.007234)
 ```
 
-## With govuk-frontend with imports slimmed and Ruby SASS
+## With govuk-frontend with duplicate imports removed and Ruby SASS
 
 [govuk-frontend-import-culled branch](https://github.com/kevindew/govuk-frontend-rails-performance/tree/govuk-frontend-import-culled)
 
