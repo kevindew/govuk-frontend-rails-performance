@@ -132,6 +132,61 @@ irb(main):002:0> puts Benchmark.measure { Rails.application.assets["application.
 => 0.004052   0.001280   0.005332 (  0.005758)
 ```
 
+## With govuk-frotend using webpacker
+
+[govuk-frontend-npm-webpacker branch](https://github.com/kevindew/govuk-frontend-rails-performance/tree/govuk-frontend-npm-webpacker)
+
+SCSS is compiled via webpacker. There was very little work put into the webpack configuration so use this info with caution.
+
+```
+bin/webpack
+Hash: 39e378f79d42d54899dd
+Version: webpack 4.41.2
+Time: 5006ms
+Built at: 12/03/2019 1:34:58 PM
+                                     Asset       Size       Chunks                         Chunk Names
+              css/application-1f4b8384.css    111 KiB  application  [emitted] [immutable]  application
+          css/application-1f4b8384.css.map    179 KiB  application  [emitted] [dev]        application
+    js/application-17bb4a000ce34a66d23a.js   3.96 KiB  application  [emitted] [immutable]  application
+js/application-17bb4a000ce34a66d23a.js.map   3.63 KiB  application  [emitted] [dev]        application
+                             manifest.json  640 bytes               [emitted]
+Entrypoint application = css/application-1f4b8384.css js/application-17bb4a000ce34a66d23a.js css/application-1f4b8384.css.map js/application-17bb4a000ce34a66d23a.js.map
+[./app/javascript/packs/application.scss] 39 bytes {application} [built]
+    + 1 hidden module
+Child mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--7-1!node_modules/postcss-loader/src/index.js??ref--7-2!node_modules/sass-loader/dist/cjs.js??ref--7-3!app/javascript/packs/application.scss:
+    Entrypoint mini-css-extract-plugin = *
+    [./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./app/javascript/packs/application.scss] ./node_modules/css-loader/dist/cjs.js??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./app/javascript/packs/application.scss 340 KiB {mini-css-extract-plugin} [built]
+        + 1 hidden module
+```
+
+
+## With govuk-frontend using webpacker with imports culled
+
+[govuk-frontend-npm-webpacker-import-culled branch](https://github.com/kevindew/govuk-frontend-rails-performance/tree/govuk-frontend-npm-webpacker-import-culled)
+
+govuk-frontend is compiled via webpacker, using the import culled branch. Again, no time put into webpacker configuration so use numbers with caution.
+
+```
+bin/webpack
+Hash: 61cb8b8910ff5a7a9a38
+Version: webpack 4.41.2
+Time: 2477ms
+Built at: 12/03/2019 1:37:38 PM
+                                     Asset       Size       Chunks                         Chunk Names
+              css/application-45bb3abc.css    110 KiB  application  [emitted] [immutable]  application
+          css/application-45bb3abc.css.map    173 KiB  application  [emitted] [dev]        application
+    js/application-17bb4a000ce34a66d23a.js   3.96 KiB  application  [emitted] [immutable]  application
+js/application-17bb4a000ce34a66d23a.js.map   3.63 KiB  application  [emitted] [dev]        application
+                             manifest.json  640 bytes               [emitted]
+Entrypoint application = css/application-45bb3abc.css js/application-17bb4a000ce34a66d23a.js css/application-45bb3abc.css.map js/application-17bb4a000ce34a66d23a.js.map
+[./app/javascript/packs/application.scss] 39 bytes {application} [built]
+    + 1 hidden module
+Child mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--7-1!node_modules/postcss-loader/src/index.js??ref--7-2!node_modules/sass-loader/dist/cjs.js??ref--7-3!app/javascript/packs/application.scss:
+    Entrypoint mini-css-extract-plugin = *
+    [./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./app/javascript/packs/application.scss] ./node_modules/css-loader/dist/cjs.js??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./app/javascript/packs/application.scss 334 KiB {mini-css-extract-plugin} [built]
+        + 1 hidden module
+```
+
 ## Base case
 
 [bare-app branch](https://github.com/kevindew/govuk-frontend-rails-performance/tree/bare-app)
