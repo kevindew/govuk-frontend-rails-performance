@@ -1,0 +1,1 @@
+class HelloController < ApplicationController; end
